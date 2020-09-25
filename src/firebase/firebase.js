@@ -2,6 +2,7 @@
 
 import firebase from 'firebase/app';
 import 'firebase/database';
+import 'firebase/auth';
 
 const config = {
   apiKey:process.env.FIREBASE_API_KEY,
@@ -18,8 +19,9 @@ firebase.initializeApp(config);
 //firebase.analytics();
 
 const database = firebase.database(); 
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export {firebase, database as default};
+export {firebase, googleAuthProvider, database as default};
 
 // database.ref('expenses').push({
 //   Description: 'Coffee',
